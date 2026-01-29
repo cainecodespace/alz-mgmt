@@ -40,19 +40,19 @@ custom_replacements = {
     connectivity_hub_primary_resource_group_name   = "rg-hub-$${starter_location_01}"
     connectivity_hub_secondary_resource_group_name = "rg-hub-$${starter_location_02}"
     dns_resource_group_name                        = "rg-hub-dns-$${starter_location_01}"
-    ddos_resource_group_name                       = "rg-hub-ddos-$${starter_location_01}"
+    #ddos_resource_group_name                       = "rg-hub-ddos-$${starter_location_01}"
     asc_export_resource_group_name                 = "rg-asc-export-$${starter_location_01}"
 
     # Resource names
     log_analytics_workspace_name            = "law-management-$${starter_location_01}"
-    ddos_protection_plan_name               = "ddos-$${starter_location_01}"
+    #ddos_protection_plan_name               = "ddos-$${starter_location_01}"
     ama_user_assigned_managed_identity_name = "uami-management-ama-$${starter_location_01}"
     dcr_change_tracking_name                = "dcr-change-tracking"
     dcr_defender_sql_name                   = "dcr-defender-sql"
     dcr_vm_insights_name                    = "dcr-vm-insights"
 
     # Resource provisioning global connectivity
-    ddos_protection_plan_enabled = true
+    ddos_protection_plan_enabled = false
 
     # Resource provisioning primary connectivity
     primary_virtual_network_gateway_express_route_enabled                = true
@@ -135,7 +135,7 @@ custom_replacements = {
   */
   resource_group_identifiers = {
     management_resource_group_id             = "/subscriptions/$${subscription_id_management}/resourcegroups/$${management_resource_group_name}"
-    ddos_protection_plan_resource_group_id   = "/subscriptions/$${subscription_id_connectivity}/resourcegroups/$${ddos_resource_group_name}"
+    #ddos_protection_plan_resource_group_id   = "/subscriptions/$${subscription_id_connectivity}/resourcegroups/$${ddos_resource_group_name}"
     primary_connectivity_resource_group_id   = "/subscriptions/$${subscription_id_connectivity}/resourceGroups/$${connectivity_hub_primary_resource_group_name}"
     secondary_connectivity_resource_group_id = "/subscriptions/$${subscription_id_connectivity}/resourceGroups/$${connectivity_hub_secondary_resource_group_name}"
     dns_resource_group_id                    = "/subscriptions/$${subscription_id_connectivity}/resourceGroups/$${dns_resource_group_name}"
@@ -153,7 +153,7 @@ custom_replacements = {
     ama_vm_insights_data_collection_rule_id     = "$${management_resource_group_id}/providers/Microsoft.Insights/dataCollectionRules/$${dcr_vm_insights_name}"
     ama_user_assigned_managed_identity_id       = "$${management_resource_group_id}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$${ama_user_assigned_managed_identity_name}"
     log_analytics_workspace_id                  = "$${management_resource_group_id}/providers/Microsoft.OperationalInsights/workspaces/$${log_analytics_workspace_name}"
-    ddos_protection_plan_id                     = "$${ddos_protection_plan_resource_group_id}/providers/Microsoft.Network/ddosProtectionPlans/$${ddos_protection_plan_name}"
+    #ddos_protection_plan_id                     = "$${ddos_protection_plan_resource_group_id}/providers/Microsoft.Network/ddosProtectionPlans/$${ddos_protection_plan_name}"
   }
 }
 
@@ -216,7 +216,7 @@ management_group_settings = {
     ama_user_assigned_managed_identity_id       = "$${ama_user_assigned_managed_identity_id}"
     ama_user_assigned_managed_identity_name     = "$${ama_user_assigned_managed_identity_name}"
     log_analytics_workspace_id                  = "$${log_analytics_workspace_id}"
-    ddos_protection_plan_id                     = "$${ddos_protection_plan_id}"
+    #ddos_protection_plan_id                     = "$${ddos_protection_plan_id}"
     private_dns_zone_subscription_id            = "$${subscription_id_connectivity}"
     private_dns_zone_region                     = "$${starter_location_01}"
     private_dns_zone_resource_group_name        = "$${dns_resource_group_name}"
@@ -291,13 +291,13 @@ You can use this section to customize the hub virtual networking that will be de
 connectivity_type = "hub_and_spoke_vnet"
 
 connectivity_resource_groups = {
-  ddos = {
-    name     = "$${ddos_resource_group_name}"
-    location = "$${starter_location_01}"
-    settings = {
-      enabled = "$${ddos_protection_plan_enabled}"
-    }
-  }
+  #ddos = {
+  #  name     = "$${ddos_resource_group_name}"
+  #  location = "$${starter_location_01}"
+  #  settings = {
+  #    enabled = "$${ddos_protection_plan_enabled}"
+  #  }
+  #}
   vnet_primary = {
     name     = "$${connectivity_hub_primary_resource_group_name}"
     location = "$${starter_location_01}"
@@ -323,13 +323,13 @@ connectivity_resource_groups = {
 
 hub_and_spoke_networks_settings = {
   enabled_resources = {
-    ddos_protection_plan = "$${ddos_protection_plan_enabled}"
+    #ddos_protection_plan = "$${ddos_protection_plan_enabled}"
   }
-  ddos_protection_plan = {
-    name                = "$${ddos_protection_plan_name}"
-    resource_group_name = "$${ddos_resource_group_name}"
-    location            = "$${starter_location_01}"
-  }
+  #ddos_protection_plan = {
+  #  name                = "$${ddos_protection_plan_name}"
+  #  resource_group_name = "$${ddos_resource_group_name}"
+  #  location            = "$${starter_location_01}"
+  #}
 }
 
 hub_virtual_networks = {
@@ -489,3 +489,4 @@ hub_virtual_networks = {
 
 
 # private_link_private_dns_zone_virtual_network_link_moved_blocks_enabled = true
+
