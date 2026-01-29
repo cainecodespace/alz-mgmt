@@ -40,7 +40,7 @@ custom_replacements = {
     connectivity_hub_primary_resource_group_name   = "rg-hub-$${starter_location_01}"
     connectivity_hub_secondary_resource_group_name = "rg-hub-$${starter_location_02}"
     dns_resource_group_name                        = "rg-hub-dns-$${starter_location_01}"
-    #ddos_resource_group_name                       = "rg-hub-ddos-$${starter_location_01}"
+    #ddos_resource_group_name                      = "rg-hub-ddos-$${starter_location_01}"
     asc_export_resource_group_name                 = "rg-asc-export-$${starter_location_01}"
 
     # Resource names
@@ -489,4 +489,5 @@ hub_virtual_networks = {
 
 
 # private_link_private_dns_zone_virtual_network_link_moved_blocks_enabled = true
+
 
